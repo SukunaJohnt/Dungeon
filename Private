@@ -1,0 +1,105 @@
+function removeNumbersFromString(str)
+    local result = ""
+    for i = 1, #str do
+        local char = str:sub(i, i)
+        if not tonumber(char) then
+            result = result .. char
+        end
+    end
+    return result
+ end
+ 
+ spawn(function()
+    pcall(function()
+  if getgenv().DestroyEffect == true then 
+    workspace.Effects:Destroy()
+  end 
+ end)
+ end)
+
+ spawn(function()
+  while wait(.1) do 
+     pcall(function()
+  for i,v2 in pairs(workspace.Lives:GetChildren()) do  
+     if v2:IsA("Model") and v2:FindFirstChild("HumanoidRootPart")  then 
+ local stringWithNumbers = v2.Name
+ local stringWithoutNumbers = removeNumbersFromString(stringWithNumbers)
+ v2.Name = stringWithoutNumbers
+     end 
+    end 
+ end) 
+ end
+ end)
+
+ spawn(function()
+    while task.wait(.1) do 
+       if AutoEquip == true then 
+          pcall(function()
+            if game.PlaceId ~= 15049111150 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then 
+      game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(weapon))
+            end 
+      end)
+   else
+      wait()
+      break
+   end 
+   end
+   end)
+
+
+   spawn(function()
+    while wait(.1) do 
+       if AutoSkills == true then 
+          pcall(function()
+            if game.PlaceId ~= 15049111150 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then 
+for i,v in pairs(key) do 
+game:GetService("VirtualInputManager"):SendKeyEvent(true,v,false,game)
+game:GetService("VirtualInputManager"):SendKeyEvent(false,v,false,game)
+wait(.1)
+end 
+end
+end)
+else
+    wait()
+    break
+ end 
+ end
+ end)
+
+ while task.wait(.1) do 
+    if Start == true then 
+        spawn(function()
+       pcall(function()
+        if game.PlaceId == 15049111150 then 
+            for i,v in pairs(workspace.World.Portal:GetChildren()) do 
+                if v:IsA("Part") and v:FindFirstChild("Choose") and v.Choose.Value == "Tokyo Prefectural Jujutsu High School" or v.Choose.Value == "King's Trial" then 
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+                if  v.BillboardGui.Frame:FindFirstChild(game.Players.LocalPlayer.Name) == nil then 
+                    fireproximityprompt(v.ProximityPrompt)
+                end 
+                end 
+            end 
+        else
+        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Ready"):FireServer()
+
+for i,v in pairs(workspace.Lives:GetChildren()) do  
+   if v:IsA("Model") and v.Name ~=  "Dummy" and  v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then 
+     if DungeonType == "A" then 
+ --game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,0,4)
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  = CFrame.new(-86.4503021, -7.33596897, 3.16314125, 0.997809768, 0.000140379561, -0.0661483482, -0.00015767265, 0.99999994, -0.000256208383, 0.0661483109, 0.000266077026, 0.997809768)
+ game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+ 
+   elseif  DungeonType == "B" then 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame  = CFrame.new(-554.454285, 689.501709, -686.205139, 0.01348357, -3.84138765e-08, -0.999909103, 3.7396572e-11, 1, -3.84168644e-08, 0.999909103, 4.80603279e-10, 0.01348357)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+   end  
+end 
+end 
+end
+end)
+end)
+else
+   wait()
+   break
+end 
+end
